@@ -53,8 +53,8 @@ Flex-grow, like flex-shrink (below), distributes extra space once each element i
 *** can be 0 or a positive integer. (It won’t break with a negative integer, but it won’t do anything either.)
 Flex-shrink controls what happens to extra space as elements shrink.  By assigning a value to flex-shrink, as elements get smaller on the page, this element will get smaller faster than the others. Note there is no unit with this measurement — it’s simply a proportion.
 
-12. .flex2{ border: 2px dotted blue; flex: G S B; }
-G = flex-grow
+12. .flex2{ border: 2px dotted blue; flex: Grow Shrink Basis; }
+G = flex-grow : grow twice as fast
 S = flex-shrink
-B = flex-basis
+B = flex-basis : always better to use percentage because width value is an absolute value
 This is the shorthand for combining flex-grow, flex-shrink, and flex-basis. 

@@ -27,12 +27,12 @@ article img {
 nav {
   background: url(../img/scallop.png) repeat-x;
 }
-nav ul {
+nav ul.full-width {
   list-style-type: none;
   background-color: #e6bf98; 
   padding: .75em;
   margin: 12px 0 0 0;
-  border-bottom: 3px solid #cc8850;
+  border-bottom: 2px solid #cc8850;
   overflow: auto;
 
 }
@@ -46,7 +46,7 @@ nav li:nth-child(even) {
 nav li:nth-child(odd) {
   width: 50%;
   float: left;
-    padding: 0.5em;
+  padding: 0.5em;
 }
 nav a {
   color: #c80060;
@@ -71,14 +71,14 @@ div.row {
   border-bottom-right-radius: 10px;
   padding: 1em;
 }
-.floatleft {
+/* .floatleft {
   float: left;
   margin: 0 1em 1em 0;
-}
-.floatright {
+} */
+/* .floatright {
   float: right;
   margin: 0 0 1em 1em;
-}
+} */
 [class*='sidebar'] {
   border: 1px solid #00c4c7;
   border-radius: 10px;
@@ -192,16 +192,19 @@ aside[class*='sidebar'] {
       width: 97%;
       max-width: 1200px;
       float: none;
+      flex-direction: row;
+
   }
 
   [class*='col-'] {
-    float: left;
+    /* float: left; */
     margin-left: 3.33333%;
     min-height: 1px;
   }
-  .col-1,
+  .col-1
   .col-1-2,
-  .col-1-4 {
+  .col-1-4 
+  {
     width: 20.83333%;
   }
   .col-2 {

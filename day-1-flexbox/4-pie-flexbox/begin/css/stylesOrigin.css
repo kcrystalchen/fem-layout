@@ -15,47 +15,35 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Niconne', cursive;
   font-weight: normal;
   color: #C80060;
-  /* margin-top: 0; */
 }
 .wrapper {
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 80% 20%;
-  grid-template-rows: 20% 10% 60% 10%;
-  grid-area: 
-  "header header header"
-  "nav nav nav"
-  "row row row"
-  "footer footer footer";
+	margin: 0 auto;
 }
 article img {
   border-radius: 10px;
   width: 100%;
   max-width: 250px;
 }
-
 nav {
-  height: 12px;
   background: url(../img/scallop.png) repeat-x;
 }
 nav ul {
   list-style-type: none;
   background-color: #e6bf98; 
   padding: .75em;
-  margin: 0;
-  /* margin: 12px 0 0 0; */
+  margin: 12px 0 0 0;
   border-bottom: 3px solid #cc8850;
   overflow: auto;
 
 }
 /* splits nav into 2 columns
 http://stackoverflow.com/questions/13104818/simple-2-column-navigation-with-css-and-a-single-list */
-nav li:nth-child(even){
+nav li:nth-child(even) {
   width: 50%;
   float: right;
   padding: 0.5em;
 }
-nav li:nth-child(odd){
+nav li:nth-child(odd) {
   width: 50%;
   float: left;
   padding: 0.5em;
@@ -71,13 +59,46 @@ nav a:hover {
 }
 
 
+.row:before, 
+.row:after {
+    content:"";
+    display: table;
+    clear:both;
+}
 div.row {
   background-color: #fff6e0;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 1em;
 }
-
+.floatleft {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+.floatright {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+[class*='sidebar'] {
+  border: 1px solid #00c4c7;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  margin-top: 2.5em;
+}
+[class*='sidebar'] h3 {
+  margin: 0;
+  color: white;
+  background-color: #00c4c7;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-left: 0.5em;
+}
+[class*='sidebar'] img {
+  border-radius: 0px 0px 10px 10px;
+  width: 100%;
+  max-width: 250px;
+  display: block; /* without this, there is a gap between the image and border -- space for descenders in text, for inline elements */
+} 
 .sidebar-secondary {
   border-color: #c80060;
 }
@@ -114,54 +135,55 @@ footer a {
   color: white;
   text-decoration: none;
 }
-/* grid system */
-.row {
-  display: grid;
+
+[class*=‘col’] {
+  margin-left: 0;
 }
-[class*="col-"] {
-  margin: 0 4%;
-}
-.full-width {
-  margin: 0;
-}
-[class*="sidebar"] {
-  margin-bottom: 2em;
-  margin-right: 1em;
-}
-.row.col-1-4 {
-  margin-top: 3em;
-}
-/* global alignment options */
-.reverse {
-  flex-direction: row-reverse;
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-1-2,
+  .col-1-4  {
+  width: 96.66666%;
 }
 
+
+
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 550px) { 
+@media (min-width: 550px) and (max-width: 849px) { 
   .wrapper {
       width: 97%;
       max-width: 767px;
+      float: none;
   }
+ .col-1,
+ .col-2,
+ .col-1-2,
+.col-3,
+.col-4,
+.col-1-4 {
+  width: 96.66666%;
+}
 div.row {
   padding: 0 2em;
 }
- nav li,
+aside[class*='sidebar'] {
+  float: left;
+  width: 47%;
+  margin-right: 3%;
+}
+
+  nav li,
   nav li:nth-child(even),
   nav li:nth-child(odd) {
+    display: inline-block;
+    float: none;
     width: auto;
     padding: 0;
   }
   nav a {
       padding: 0em 1em 0em 1em;
-  }
-  [class*='col-']{
-    margin-left: 4%;
-    margin-right: 0%;
-  }
-  
-  .reverse [class*='col-'] {
-    margin-left: 0%;
-    margin-right: 4%;
   }
 }
 /* Large devices (large desktops, 1200px and up) */
@@ -169,6 +191,27 @@ div.row {
   .wrapper {
       width: 97%;
       max-width: 1200px;
+      float: none;
+  }
+
+  [class*='col-'] {
+    float: left;
+    margin-left: 3.33333%;
+    min-height: 1px;
+  }
+  .col-1,
+  .col-1-2,
+  .col-1-4 {
+    width: 20.83333%;
+  }
+  .col-2 {
+    width: 44.99999%;
+  }
+  .col-3 {
+    width: 69.16665%;
+  }
+  .col-4 {
+    width: 96.66666%;
   }
   h2 {
     font-size: 3em;
@@ -183,11 +226,12 @@ div.row {
   nav li,
   nav li:nth-child(even),
   nav li:nth-child(odd) {
+    display: inline-block;
+    float: none;
     width: auto;
     padding: 0;
   }
   nav a {
-      padding: 0em 1em;
+      padding: 0em 1em 0em 1em;
   }
-
 }
